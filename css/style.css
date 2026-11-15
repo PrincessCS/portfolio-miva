@@ -1,0 +1,621 @@
+/* Dark theme: aubergine-black base, dusty rose for action, sage for resolved.
+   Signature shape: the chamfered (cut) corner, used on the photo, buttons,
+   cards and tasks. Rose/sage are carried over from the original palette. */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #0f0b17;
+  --surface: #1a1427;
+  --surface-2: #221a33;
+  --line: #33284a;
+  --ink: #efe8f6;
+  --muted: #a89cbd;
+  --rose: #f2a6b8;
+  --rose-hover: #ffc4d1;
+  --sage: #8d997a;
+  --on-rose: #1a0f1f;
+  --err: #ff8a8a;
+  --ok: #a6d9a0;
+
+  --page: 1280px;
+  --gutter: clamp(1rem, 3.5vw, 2.5rem);
+  --cut: 14px;
+  --photo-cut: polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: "Public Sans", system-ui, sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(
+    1100px 520px at 8% -8%,
+    rgba(242, 166, 184, 0.1),
+    transparent 62%
+  );
+  background-repeat: no-repeat;
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--on-rose);
+}
+
+h1,
+h2 {
+  font-family: "Black Ops One", system-ui, sans-serif;
+  font-weight: 400; /* this face ships one weight; 800 would be faux bold */
+  line-height: 1.15;
+  letter-spacing: 0.015em;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--rose);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--rose-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* header + navigation */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.9rem max(var(--gutter), calc((100% - var(--page)) / 2 + var(--gutter)));
+  background: rgba(15, 11, 23, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--rose);
+  clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 30% 100%, 0 70%);
+}
+
+.brand:hover {
+  color: var(--ink);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  position: relative;
+  display: block;
+  padding: 0.45rem 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.1rem;
+  height: 2px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.nav-list a:hover {
+  color: var(--ink);
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after,
+.nav-list a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav-list a.active,
+.nav-list a[aria-current="page"] {
+  color: var(--rose);
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1.4rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.nav-toggle:hover {
+  border-color: var(--rose);
+}
+
+/* layout */
+main {
+  min-height: 70vh;
+}
+
+.section {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 3rem var(--gutter);
+}
+
+.narrow {
+  max-width: 720px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.hero {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 4rem var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap-reverse;
+}
+
+.hero-text {
+  flex: 1 1 340px;
+}
+
+/* The one memorable element: a cut-corner photo with a solid rose offset */
+.hero-photo {
+  position: relative;
+  flex: 0 1 320px;
+  margin: 0 16px 16px 0;
+}
+
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(16px, 16px);
+  background: var(--rose);
+  clip-path: var(--photo-cut);
+}
+
+.hero-photo img {
+  position: relative;
+  clip-path: var(--photo-cut);
+  animation: reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 14%, 0 100%, 0 100%, 0 86%);
+  }
+  to {
+    clip-path: var(--photo-cut);
+  }
+}
+
+.kicker {
+  color: var(--sage);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.quick-links li {
+  margin: 1rem 0;
+}
+
+.skills {
+  columns: 1;
+}
+
+.skills li::marker {
+  color: var(--rose);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.career-aspirations{
+  margin-top: 2rem;
+}
+
+/* buttons */
+.btn {
+  --cut: 12px;
+  display: inline-block;
+  background: var(--rose);
+  color: var(--on-rose);
+  border: 2px solid var(--rose);
+  padding: 0.6rem 1.4rem;
+  font:
+    600 1rem "Public Sans",
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% 100%,
+    var(--cut) 100%,
+    0 calc(100% - var(--cut))
+  );
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    transform 0.15s;
+}
+
+.btn:hover {
+  background: var(--rose-hover);
+  border-color: var(--rose-hover);
+  color: var(--on-rose);
+  transform: translateY(-2px);
+}
+
+/* clip-path would hide the outline, so focus drops the cut */
+.btn:focus-visible {
+  clip-path: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--rose);
+}
+
+.btn-ghost:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--on-rose);
+}
+
+/* table */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+}
+
+caption {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.4rem 0;
+  color: var(--muted);
+}
+
+th,
+td {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+thead th {
+  background: var(--surface-2);
+  color: var(--rose);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* project cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+  transition: border-color 0.25s;
+}
+
+.card:hover {
+  border-color: var(--rose);
+}
+
+.card img {
+  width: 100%;
+  filter: saturate(0.8) brightness(0.92);
+  transition: filter 0.25s;
+}
+
+.card:hover img {
+  filter: none;
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-body h2 {
+  font-size: 1.25rem;
+}
+
+/* forms */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 0.65rem 0.8rem;
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  background: #120d1c;
+  color: var(--ink);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px rgba(242, 166, 184, 0.22);
+  outline: none;
+}
+
+.invalid {
+  border-color: var(--err);
+}
+
+.error {
+  color: var(--err);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.success {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.inline-form {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.inline-form input[type="text"] {
+  flex: 1 1 240px;
+}
+
+/* planner: rose edge = still to do, sage edge = done */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--rose);
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.6rem;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  animation: slide 0.3s ease-out;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.task input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--rose);
+}
+
+.task-text {
+  flex: 1;
+  transition: color 0.25s;
+}
+
+.task-text small {
+  display: block;
+  color: var(--muted);
+}
+
+.task.done {
+  border-left-color: var(--sage);
+}
+
+.task.done .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-del {
+  background: none;
+  border: 1px solid var(--err);
+  color: var(--err);
+  border-radius: 4px;
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.task-del:hover {
+  background: var(--err);
+  color: var(--on-rose);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem var(--gutter);
+  background: #0a0710;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-header nav {
+    width: 100%;
+    display: none;
+  }
+
+  .site-header nav.open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 701px) {
+  .skills {
+    columns: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

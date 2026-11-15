@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Chidera Odo</title>
+    <meta
+      name="description"
+      content="Academic portfolio and planner of Chidera Odo, a university student."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">c.odo</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        &#9776;
+      </button>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <a href="projects.html" class="active" aria-current="page"
+              >Projects</a
+            >
+          </li>
+          <li><a href="planner.html">Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="section">
+        <div class="page-intro">
+          <h1>Projects</h1>
+          <p class="lead">
+            Things I've built while learning frontend development, from a plain
+            HTML, CSS and JavaScript portfolio to apps using Next.js, Sanity and
+            live weather data.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <img
+              src="images/portfolio.png"
+              alt="Screenshot of Personal Portfolio Site"
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <div class="card-body">
+              <h2>Personal Portfolio Site</h2>
+              <p>
+                A portfolio website showcasing my projects, tech stack and skills
+              </p>
+                <ul class="tech" role="list">
+                <li>Next.js</li>
+                <li>Tailwind CSS</li>
+              </ul>
+              <div class="card-actions">
+                 <a
+                  class="btn"
+                  href="https://chideraodo.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Velvety live demo"
+                  >Demo</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://github.com/your-username/project-1"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Personal Portfolio Site on GitHub"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="images/velvety.webp"
+              alt="Screenshot of Velvety"
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <div class="card-body">
+              <h2>Velvety</h2>
+              <p>
+                Velvety is a skincare e-commerce website for ordering
+                nature-inspired skincare products. It features Redux Toolkit
+                Query for efficient state management and fetches product data
+                from a local db.json file. The site also includes an automatic
+                carousel and category-based product filtering for a seamless
+                shopping experience.
+              </p>
+              <ul class="tech" role="list">
+                <li>Redux Toolkit Query</li>
+                <li>db.json</li>
+              </ul>
+              <div class="card-actions">
+                <a
+                  class="btn"
+                  href="https://velvety-virid.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Velvety live demo"
+                  >Demo</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://github.com/PrincessCS/velvety"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Velvety on GitHub"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="images/thoughts.webp"
+              alt="Screenshot of ThoughtsnLetters"
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <div class="card-body">
+              <h2>ThoughtsnLetters</h2>
+              <p>
+                ThoughtsNLetters is a Next.js and Sanity-powered lifestyle blog,
+                designed for sharing personal reflections, experiences, and
+                insights. Built with Tailwind CSS, it offers a clean, modern,
+                and responsive reading experience.
+              </p>
+              <ul class="tech" role="list">
+                <li>Next.js</li>
+                <li>Sanity</li>
+                <li>Tailwind CSS</li>
+              </ul>
+              <div class="card-actions">
+                <a
+                  class="btn"
+                  href="https://thoughtsnletters.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="ThoughtsnLetters live demo"
+                  >Demo</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://github.com/PrincessCS/blog"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="ThoughtsnLetters on GitHub"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="images/weather.webp"
+              alt="Screenshot of HowsTheWeather"
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <div class="card-body">
+              <h2>HowsTheWeather</h2>
+              <p>
+                HowsTheWeather is a weather web app built with HTML, CSS, and
+                JavaScript, using the OpenWeatherMap API to fetch real-time
+                weather data for any location. It features dynamic background
+                images, manually sourced from Pexels, which change based on the
+                current weather conditions for a more immersive experience.
+              </p>
+              <ul class="tech" role="list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>OpenWeatherMap API</li>
+              </ul>
+              <div class="card-actions">
+                <a
+                  class="btn"
+                  href="https://sprightly-cactus-0fdf86.netlify.app/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="HowsTheWeather live demo"
+                  >Demo</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://github.com/PrincessCS/weather"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="HowsTheWeather on GitHub"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>&copy; 2026 Chidera Odo. Built for COS 106, MIVA Open University.</p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>

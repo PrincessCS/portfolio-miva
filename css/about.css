@@ -1,0 +1,93 @@
+/* About page. Load after style.css; it reuses that file's colour variables. */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* intro */
+.page-intro {
+  padding: 1rem 0 0.5rem;
+}
+
+.page-intro h1 {
+  margin-bottom: 0.4em;
+}
+
+.page-intro .lead {
+  max-width: 60ch;
+}
+
+/* panels: one per topic, cut corner like the cards */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+
+.panel > h2 {
+  margin-bottom: 1rem;
+}
+
+.panel p {
+  max-width: 68ch;
+}
+
+.panel p + p {
+  margin-top: 1rem;
+}
+
+.panel table {
+  background: transparent;
+}
+
+.panel h3 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.skill-group + .skill-group {
+  margin-top: 1.5rem;
+}
+
+/* tags */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags li {
+  padding: 0.3rem 0.8rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* skills on the left, hobbies + audio on the right */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.panel audio {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+}
+
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

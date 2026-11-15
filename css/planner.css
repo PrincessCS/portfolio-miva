@@ -1,0 +1,200 @@
+/* Planner page. Load after style.css; it reuses that file's colour variables. */
+
+[hidden] {
+  display: none !important;
+}
+
+.page-intro {
+  padding: 1rem 0 0.5rem;
+}
+
+.page-intro h1 {
+  margin-bottom: 0.4em;
+}
+
+.page-intro .lead {
+  max-width: 60ch;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+
+.panel h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* layout: form + progress on the left, task list on the right */
+.planner {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.planner-side {
+  position: sticky;
+  top: 5.5rem;
+}
+
+.planner-side .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.optional {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* progress */
+.progress-block {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.progress {
+  height: 0.7rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--rose);
+  transition:
+    width 0.4s ease,
+    background 0.3s;
+}
+
+.progress.is-complete .progress-fill {
+  background: var(--sage);
+}
+
+.progress-block .note {
+  margin-top: 0.6rem;
+}
+
+/* toolbar + filters */
+.planner-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.filter:hover {
+  color: var(--ink);
+  border-color: var(--rose);
+}
+
+.filter.is-active {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--on-rose);
+}
+
+.filter .count {
+  margin-left: 0.25rem;
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+
+.link-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  color: var(--rose);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  padding: 0.35rem 0.2rem;
+}
+
+.link-btn:hover {
+  color: var(--rose-hover);
+}
+
+/* tasks (extends the .task rules in style.css) */
+.task-list {
+  margin: 0;
+}
+
+.planner .task {
+  background: var(--surface-2);
+  animation: none;
+}
+
+.task .task-text {
+  flex: 1 1 12rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.task.overdue {
+  border-left-color: var(--err);
+}
+
+.task.overdue .task-text small {
+  color: var(--err);
+}
+
+.empty {
+  list-style: none;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+}
+
+@media (max-width: 860px) {
+  .planner {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-side {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  .task {
+    flex-wrap: wrap;
+  }
+}

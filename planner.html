@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academic Planner | Chidera Odo</title>
+<meta name="description" content="Academic portfolio and planner of Chidera Odo, a university student.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/planner.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">c.odo</a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  <nav aria-label="Main"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="planner.html" class="active" aria-current="page">Planner</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+</header>
+<main>
+<section class="section">
+  <div class="page-intro">
+    <h1>Academic planner</h1>
+    <p class="lead">Add assignments with a due date, tick them off and watch the progress bar fill. Your tasks are saved in this browser.</p>
+  </div>
+
+  <div class="planner">
+    <aside class="panel planner-side">
+      <h2>New task</h2>
+      <form id="taskForm" novalidate>
+        <div class="field">
+          <label for="taskInput">Task</label>
+          <input type="text" id="taskInput" maxlength="120" placeholder="e.g. Submit COS 106 project" autocomplete="off" aria-describedby="taskError">
+        </div>
+        <div class="field">
+          <label for="taskDate">Due date <span class="optional">(optional)</span></label>
+          <input type="date" id="taskDate">
+        </div>
+        <p id="taskError" class="error" role="alert"></p>
+        <button class="btn" type="submit">Add task</button>
+      </form>
+
+      <div class="progress-block">
+        <h2>Progress</h2>
+        <div class="progress" id="progressBar" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p id="taskCount" class="note"></p>
+      </div>
+    </aside>
+
+    <div class="panel planner-main">
+      <div class="planner-toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter" data-filter="all">All <span class="count">0</span></button>
+          <button type="button" class="filter" data-filter="active">To do <span class="count">0</span></button>
+          <button type="button" class="filter" data-filter="done">Done <span class="count">0</span></button>
+        </div>
+        <button type="button" id="clearDone" class="link-btn" hidden>Clear completed</button>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+    </div>
+  </div>
+
+</section>
+</main>
+<footer class="site-footer"><p>&copy; 2026 Chidera Odo. Built for COS 106, MIVA Open University.</p></footer>
+<script src="js/script.js"></script>
+</body>
+</html>

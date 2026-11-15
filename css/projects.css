@@ -1,0 +1,73 @@
+/* Projects page. Load after style.css; it reuses that file's colour variables. */
+
+.page-intro {
+  padding: 1rem 0 0.5rem;
+}
+
+.page-intro h1 {
+  margin-bottom: 0.4em;
+}
+
+.page-intro .lead {
+  max-width: 60ch;
+}
+
+/* two columns on desktop so the longer descriptions have room */
+.card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+/* cards stretch to equal height; buttons stay pinned to the bottom */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+  padding: 1.4rem;
+}
+
+.card-body h2 {
+  margin: 0;
+}
+
+.card-body p {
+  flex: 1;
+  color: var(--muted);
+}
+
+/* what each project is built with */
+.tech {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech li {
+  padding: 0.15rem 0.6rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 0.4rem;
+}

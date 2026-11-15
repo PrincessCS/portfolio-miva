@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me | Chidera Odo</title>
+    <meta
+      name="description"
+      content="Academic portfolio and planner of Chidera Odo, a university student."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">c.odo</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        &#9776;
+      </button>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="about.html" class="active" aria-current="page">About</a>
+          </li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="section stack">
+        <div class="page-intro">
+          <h1>About me</h1>
+          <p class="lead">
+            I'm a frontend developer with a background in microbiology, now
+            studying software engineering at MIVA Open University.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h2>Educational background</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Education timeline
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Years</th>
+                  <th scope="col">Institution</th>
+                  <th scope="col">Qualification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2026 - present</td>
+                  <td>MIVA Open University</td>
+                  <td>B.Sc. Software Engineering (In view)</td>
+                </tr>
+                <tr>
+                  <td>2017 - 2022</td>
+                  <td>University of Nigeria, Nsukka</td>
+                  <td>B.Sc. Microbiology</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Career aspirations</h2>
+          <p>
+            I am a frontend developer, and I enjoy turning designs into fast,
+            accessible interfaces that people actually like using. My plan is to
+            keep building on that foundation while exploring other parts of
+            software engineering, including backend systems, databases and how
+            applications are tested and shipped.
+          </p>
+          <p>
+            I am especially drawn to DevOps, and I hope to try my hand at it
+            someday, from automating deployments to managing the infrastructure
+            that keeps products running. In the longer term, I also plan to earn
+            a master's degree to deepen my technical knowledge and open up more
+            opportunities.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel">
+            <h2>Technical skills</h2>
+
+            <div class="skill-group">
+              <h3>Foundations</h3>
+              <ul class="tags" role="list">
+                <li>HTML5 and semantic markup</li>
+                <li>CSS3, Flexbox and Grid</li>
+                <li>Responsive, mobile-first design</li>
+                <li>Accessibility (WCAG, ARIA)</li>
+                <li>JavaScript (ES6+, DOM)</li>
+                <li>Cross-browser compatibility</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <h3>Frameworks and tools</h3>
+              <ul class="tags" role="list">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS and preprocessors</li>
+                <li>Git and GitHub</li>
+                <li>npm and Vite</li>
+                <li>Browser DevTools</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <h3>Building and shipping</h3>
+              <ul class="tags" role="list">
+                <li>Async JavaScript and the Fetch API</li>
+                <li>REST APIs and JSON</li>
+                <li>Performance and basic SEO</li>
+                <li>Unit testing (Jest or Vitest)</li>
+                <li>Figma to code</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="panel">
+              <h2>Hobbies and interests</h2>
+              <ul class="tags" role="list">
+                <li>Reading novels</li>
+                <li>Watching movies</li>
+                <li>Photography</li>
+                <li>Music</li>
+                <li>Doodling</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <h2>Hear a short hello</h2>
+              <audio controls src="media/hello.wav">
+                Your browser does not support audio.
+              </audio>
+              <!-- Replace media/hello.wav with your own recording, or swap in a <video> element. -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>&copy; 2026 Chidera Odo. Built for COS 106, MIVA Open University.</p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
