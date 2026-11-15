@@ -1,5 +1,3 @@
-/* Planner page. Load after style.css; it reuses that file's colour variables. */
-
 [hidden] {
   display: none !important;
 }
@@ -28,7 +26,7 @@
   margin-bottom: 1rem;
 }
 
-/* layout: form + progress on the left, task list on the right */
+/* planner*/
 .planner {
   display: grid;
   grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
@@ -85,7 +83,7 @@
   margin-top: 0.6rem;
 }
 
-/* toolbar + filters */
+/* toolbar and filters */
 .planner-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -151,7 +149,7 @@
   color: var(--rose-hover);
 }
 
-/* tasks (extends the .task rules in style.css) */
+/* tasks */
 .task-list {
   margin: 0;
 }

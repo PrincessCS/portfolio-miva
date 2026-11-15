@@ -1,7 +1,3 @@
-/* Dark theme: aubergine-black base, dusty rose for action, sage for resolved.
-   Signature shape: the chamfered (cut) corner, used on the photo, buttons,
-   cards and tasks. Rose/sage are carried over from the original palette. */
-
 :root {
   color-scheme: dark;
 
@@ -57,7 +53,7 @@ body {
 h1,
 h2 {
   font-family: "Black Ops One", system-ui, sans-serif;
-  font-weight: 400; /* this face ships one weight; 800 would be faux bold */
+  font-weight: 400; 
   line-height: 1.15;
   letter-spacing: 0.015em;
   margin: 0 0 0.6em;
@@ -100,7 +96,7 @@ img {
   clip: rect(0 0 0 0);
 }
 
-/* header + navigation */
+/* header and navigation */
 .site-header {
   display: flex;
   align-items: center;
@@ -236,7 +232,6 @@ main {
   flex: 1 1 340px;
 }
 
-/* The one memorable element: a cut-corner photo with a solid rose offset */
 .hero-photo {
   position: relative;
   flex: 0 1 320px;
@@ -341,7 +336,6 @@ main {
   transform: translateY(-2px);
 }
 
-/* clip-path would hide the outline, so focus drops the cut */
 .btn:focus-visible {
   clip-path: none;
 }
@@ -493,7 +487,6 @@ textarea:focus {
   flex: 1 1 240px;
 }
 
-/* planner: rose edge = still to do, sage edge = done */
 .task-list {
   list-style: none;
   padding: 0;
@@ -579,7 +572,7 @@ textarea:focus {
   margin: 0;
 }
 
-/* responsive */
+/* responsiveness */
 @media (max-width: 700px) {
   .nav-toggle {
     display: block;
